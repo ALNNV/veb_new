@@ -1,0 +1,323 @@
+body {
+    margin: 0; 
+    font-family: "inter", sans-serif;;
+    background: #f5f5f7;
+}
+
+.shapka {
+    background-color: #000;
+    color: #fff;
+    width: 98%;
+    margin: 1px auto;
+    border-radius: 24px;
+}
+
+.shapka ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    user-select: none;
+
+    margin: 5px auto;
+    padding: 10px 70px;
+    border-radius: 24px;
+}
+
+.shapka li:hover, .main_menu li:hover  {
+    color: #9933FF;  /* или лучше синий #0066CC */
+    cursor: pointer;
+}
+
+.main_menu {
+    display: flex;
+    justify-content: space-between; 
+    font-size: 18px;
+    padding: 0 305px;
+}
+
+.main_menu ul {
+    display: flex;      /*????????*/
+    list-style: none;   /*????????*/
+    margin: 1;
+    padding: 0;
+    gap: 30px;
+    user-select: none;
+}
+
+.banner {
+    position: relative;
+    width: 98%;
+    margin: 1px auto;
+    max-height: 84vh;  /*80% (max-height: 80vh) высоты окна браузера*/
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* обрезает по пропорциям контейнера */
+    display: block;
+}
+
+.button {
+    position: absolute;
+    top: 55%;
+    background: transparent;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.right { right: 0; }
+
+.slider {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    gap: 0;
+    padding: 0;
+}
+
+.slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.bestsellers {
+    width: 90%;
+    max-width: 1900px;
+    margin: 80px auto 40px auto;
+}
+
+/* сетка с хитами продаж, настройка */
+.bestseller-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 410px);
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: stretch;
+}
+
+/* настройка самой рамки */
+.bestseller {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.bestseller img {
+    width: 65%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center center;
+    margin: 0 auto 16px auto;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.bestseller h3 {
+    font-size: 17px;
+    margin: 1;
+    color: black;
+    width: 230px;
+    font-weight: 500;
+}
+
+.price {
+    font-size: 20px;
+    color: #000;
+    margin-top: 10px;   /* высота цены */
+}
+
+.buy {
+    position: absolute;      
+    bottom: 15px;            /* Высота корзины   */
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    background: #9933FF;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer;
+}
+
+.buy img {
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.aboutUS {
+    width: 100%;
+    max-width: 1500px;
+    margin: 80px auto;
+}
+
+.aboutUS-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 5 колонок */
+    grid-template-rows: repeat(2, 1fr);     /* 2 ряда */
+    gap: 24px;
+    align-items: stretch;
+}
+
+.aboutUS-big {
+    grid-column: 1 / 3;      /* 1-2 колонки */
+    grid-row: 1 / 3;         /*  1-2 ряда */
+    background: #fff;
+    border-radius: 24px;
+    border: 1px solid #E5E5E5;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutUS-big img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.aboutUS-text {
+    padding: 24px;
+    flex-grow: 1;
+}
+
+.aboutUS-text h2 {
+    font-size: 28px;
+    margin: 0 0 12px 0;
+    color: #000;
+}
+
+.aboutUS-text p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+.aboutUS-s {
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    border-radius: 24px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.aboutUS-s img {
+    width: 55px;
+    height: 55px;
+}
+
+.aboutUS-s h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #000;
+    width: 250px;
+}
+
+.aboutUS-s p {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+}
+
+.podval {
+    width: 98%;
+    margin: 80px auto 5px;
+    background: #000;
+    border-radius: 24px;
+    height: 290px;
+}
+
+.podval-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    padding: 50px 50px;
+}
+
+.podval-column h3 {
+    font-size: 20px;
+    color: #666;
+}
+
+.podval-column p {
+    font-size: 16px;
+    color: #666;
+}
+
+.podval-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.podval-column li {
+  margin: 0 0 12px 0;
+  list-style: none;
+  padding: 0;
+}
+
+.podval-link {
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 0;
+}
+
+.podval-link:hover {
+  color: #9933FF;
+}
+
+.podval-column h3 {
+  font-size: 20px;
+  color: #666;
+  margin: 0 0 24px 0;
+  font-weight: 600;
+  display: block;
+}
+
+.bestseller-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+/* прыжочек - не уверен надо ли?*/
+.bestseller-link:hover {
+    transform: translateY(-8px);
+}
+/* тень для плитки*/
+.bestseller-link:hover .bestseller {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/*  СТРАНИЦА ТОВАРА */
+
