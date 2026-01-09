@@ -59,3 +59,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
   }
+
+// Характеристики - разворачивание/сворачивание
+document.addEventListener('DOMContentLoaded', function() {
+    const expandText = document.querySelector('.expand-text');
+    const collapseText = document.querySelector('.collapse-text');
+    const hiddenSpecs = document.getElementById('hiddenSpecs');
+    
+    if (expandText && collapseText && hiddenSpecs) {
+        // Кликаем на текст "Развернуть"
+        expandText.addEventListener('click', function() {
+            hiddenSpecs.classList.add('expanded');
+        });
+        
+        // Кликаем на текст "Свернуть"
+        collapseText.addEventListener('click', function() {
+            hiddenSpecs.classList.remove('expanded');
+        });
+    }
+});

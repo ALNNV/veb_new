@@ -376,17 +376,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-top: -220px;
+    margin-top: -10px;
     padding: 0;
     margin-left: 50px;
 }
 
 .product-title {
     font-size: 28px;
-    font-weight: 600;
     margin: 0;
     color: #000;
-    width: 600px;
+    width: 500px;
 }
 
 /* ВЫБОР ПАМЯТИ */
@@ -426,4 +425,88 @@ body {
     background: #000;
     color: #fff;
     border-color: #000;
+}
+
+/* кнопка купить */
+.buy-button {
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 14px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 250px;
+    margin-top: 24px;
+}
+
+/* хар-ки */
+
+.specs {
+    width: 90%;
+    max-width: 400px;
+    margin: 60px 280px;
+    padding: 32px;
+    background: transparent;
+    border-radius: 24px;
+    margin-top: 170px;
+}
+
+.specs h2 {
+    font-size: 24px;
+    margin: 0 0 24px 0;
+    color: #000;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 15px;
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-row span:first-child {
+    color: #999;
+}
+
+.spec-row span:last-child {
+    color: #000;
+    font-weight: 500;
+}
+
+/* Текст развернуть/свернуть */
+.specs-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.expand-text, .collapse-text {
+    color: #999;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.expand-text:hover, .collapse-text:hover {
+    color: #9933FF;
+}
+
+/* Скрытые характеристики - по умолчанию скрыты */
+.specs-hidden {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+/* При добавлении класса expanded - показываются */
+.specs-hidden.expanded {
+    max-height: 2000px;
+    opacity: 1;
 }
