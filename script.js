@@ -35,3 +35,27 @@ document.addEventListener('DOMContentLoaded', function() {
     goToSlide(currentIndex);
   }, 10000);
 });
+
+
+// продукт
+
+  const bigImage = document.getElementById('imageBig');
+  const allImages = document.querySelectorAll('.image, .imagemini');  /* ИЗМЕНИЛ: добавил .image */
+  
+  if (allImages.length > 0 && bigImage) {           /* ДОБАВИЛ: проверка наличия */
+    allImages.forEach(function(imageEl) {
+        imageEl.addEventListener('click', function() {
+            // берём src из img внутри контейнера
+            const imgSrc = this.querySelector('img').src;
+            bigImage.src = imgSrc;
+            
+            // убираем active со всех
+            allImages.forEach(function(img) {
+                img.classList.remove('active');
+            });
+            
+            // добавляем active текущей
+            this.classList.add('active');
+        });
+    });
+  }
