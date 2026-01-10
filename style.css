@@ -30,18 +30,29 @@ body {
 
 .main_menu {
     display: flex;
-    justify-content: space-between; 
+    align-items: center;
     font-size: 18px;
-    padding: 0 305px;
 }
 
 .main_menu ul {
     display: flex;      /*????????*/
     list-style: none;   /*????????*/
-    margin: 1;
-    padding: 0 50px;
+    margin: 0;
+    padding: 25px;
     gap: 30px;
     user-select: none;
+}
+
+.logo-link {
+    display: block;
+    flex-shrink: 0;
+}
+
+.logo {
+    height: 32px;
+    width: 32px;
+    display: block;
+    padding-left: 300px;
 }
 
 .banner {
@@ -561,4 +572,18 @@ body {
     font-size: 28px;
     color: #000;
     font-weight: 600;
+}
+
+/* без цвета ссылки*/
+.main_menu a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main_menu a:link,
+.main_menu a:visited,
+.main_menu a:hover,
+.main_menu a:active {
+    text-decoration: none;
+    color: inherit;
 }
