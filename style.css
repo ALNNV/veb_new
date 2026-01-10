@@ -510,3 +510,55 @@ body {
     max-height: 2000px;
     opacity: 1;
 }
+
+.catalog {
+    width: 90%;
+    max-width: 2100px;
+    margin: 40px auto 40px auto;
+}
+
+.catalog-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 320px);
+    grid-template-rows: repeat(auto-fit, 320px);
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.catalog-item {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.catalog-item img {
+    width: 55%;
+    height: 230px;
+    object-fit: cover;
+    object-position: center center;
+    margin: 0 auto 16px auto;
+    border-radius: 16px;
+}
+
+.catalog-item h3 {
+    font-size: 17px;
+    margin: 1;
+    color: black;
+    font-weight: 500;
+    text-align: center; 
+}
+
+.catalog h2 {
+    margin: 50px;
+    font-size: 28px;
+    color: #000;
+    font-weight: 600;
+}
