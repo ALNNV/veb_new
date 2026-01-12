@@ -336,7 +336,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updatePaymentOptions('pickup');
 
         // 4. ВАЛИДАЦИЯ И ОТПРАВКА
-        // 4. ВАЛИДАЦИЯ И ОТПРАВКА
         form.addEventListener('submit', function(e) {
             e.preventDefault(); // Останавливаем стандартную отправку
             
