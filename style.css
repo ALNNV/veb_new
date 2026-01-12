@@ -592,79 +592,74 @@ body {
 
 @media (max-width: 768px) {
     
-    /* 1. Исправляем шапку */
+
     .shapka {
         width: 100%;
-        border-radius: 0; /* На мобильном скругленные углы по бокам не нужны */
+        border-radius: 0;
     }
 
     .shapka ul {
-        padding: 10px;      /* Убираем гигантские отступы 250px */
-        flex-direction: column; /* Элементы меню ставим вертикально */
+        padding: 10px;      
+        flex-direction: column; /* вертикально */
         align-items: center;
         gap: 10px;
     }
 
-    /* 2. Исправляем главное меню и логотип */
     .logo {
-        padding-left: 0;   /* Убираем лишний отступ */
-        margin: 0 auto;    /* Центрируем логотип */
+        padding-left: 0;   
+        margin: 0 auto;    
     }
 
     .main_menu {
-        flex-direction: column; /* Логотип сверху, ссылки снизу */
+        flex-direction: column; 
         padding: 10px;
     }
 
     .main_menu ul {
-        flex-wrap: wrap;       /* Если ссылки не влезают, пусть переносятся */
+        flex-wrap: wrap;       /* перенос ссылок */
         justify-content: center;
         padding: 10px 0;
         gap: 15px;
-        font-size: 14px;       /* Чуть уменьшаем шрифт */
+        font-size: 14px;       
     }
 
-    /* 3. Исправляем сетку товаров (было 4 в ряд, станет 1) */
     .bestseller-grid {
-        grid-template-columns: 1fr; /* Одна колонка */
-        grid-template-rows: auto;   /* Высота автоматическая */
+        grid-template-columns: 1fr; /* всё в одну колонку */
+        grid-template-rows: auto;   
         width: 100%;
     }
     
     .bestsellers {
-        width: 95%; /* Чуть больше ширины для контента */
+        width: 95%; 
         margin-top: 40px;
     }
 
-    /* 4. Исправляем блок "О нас" */
     .aboutUS-grid {
-        grid-template-columns: 1fr; /* Все блоки друг под другом */
+        grid-template-columns: 1fr; /* вертикально в 1 столбец */
         grid-template-rows: auto;
     }
     
-    /* Большой блок теперь просто занимает всю ширину, как и остальные */
     .aboutUS-big {
         grid-column: auto; 
         grid-row: auto;
     }
 
-    /* 5. Исправляем подвал */
     .podval {
-        height: auto; /* Высота подстроится под контент */
+        height: auto; 
         padding-bottom: 20px;
     }
 
     .podval-grid {
-        grid-template-columns: 1fr; /* Одна колонка */
+        grid-template-columns: 1fr; /* 1 столбец */
         padding: 20px;
         gap: 30px;
-        text-align: center; /* Центрируем текст в подвале */
+        text-align: center; 
     }
 
-    /* 6. Исправляем страницу товара (product.html) */
+    /* Страница товара */
     .product-image {
         flex-direction: column; /* Картинки сверху, описание снизу */
-        margin-left: 0;         /* Убираем огромный отступ слева */
+        margin-left: 0;         
         width: 100%;
         gap: 20px;
         padding-top: 10px;
