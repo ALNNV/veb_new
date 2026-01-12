@@ -592,6 +592,176 @@ body {
     color: inherit;
 }
 
+/* --- СТИЛИ КОРЗИНЫ --- */
+.cart-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    min-height: 400px;
+}
+
+.cart-wrapper h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* Карточка товара в корзине */
+.cart-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-right: 20px;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+}
+
+.cart-item-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #000;
+}
+
+.cart-item-price {
+    font-weight: 600;
+    color: #333;
+}
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-count {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.delete-btn {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Итого */
+.cart-summary {
+    background: #fff;
+    padding: 24px;
+    border-radius: 24px;
+    margin-top: 30px;
+    text-align: right;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.cart-summary p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.checkout-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.back-to-store {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #9933FF;
+    font-size: 18px;
+}
+
+/* Адаптив корзины */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cart-item img {
+        margin: 0 0 15px 0;
+    }
+    .cart-controls {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* --- КОРЗИНА В ШАПКЕ --- */
+
+/* Контейнер иконки */
+.basket-icon-wrapper {
+    position: relative; /* Чтобы кружочек с цифрой позиционировался относительно иконки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px; /* Немного отделим от текста */
+}
+
+/* Сама картинка корзины */
+.basket-icon-wrapper img {
+    width: 45px;       /* Оптимальный размер для меню */
+    height: 45px;
+    object-fit: contain;
+    /* Если иконка серая/белая, можно сделать её черной для контраста, если нужно: */
+    /* filter: brightness(0); */ 
+}
+
+/* Красный кружочек (счетчик) */
+.basket-badge {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #ff4444; /* Красный цвет */
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%; /* Делает круг */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid #fff; /* Белая обводка, чтобы не сливалось */
+    opacity: 0; /* Скрыт, если 0 товаров (JS это исправит) */
+    transition: opacity 0.3s;
+}
+
+/* Показываем счетчик, когда товаров больше 0 */
+.basket-badge.visible {
+    opacity: 1;
+}
+
+/* Эффект при наведении */
+.basket-header-link:hover .basket-icon-wrapper img {
+    opacity: 0.7;
+    transform: scale(1.1); /* Легкое увеличение */
+    transition: all 0.2s ease;
+}
+
 /* --- АДАПТИВНОСТЬ (МОБИЛЬНАЯ ВЕРСИЯ) --- */
 
 @media (max-width: 768px) {

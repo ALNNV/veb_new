@@ -104,3 +104,130 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+/* --- ЛОГИКА КОРЗИНЫ --- */
+
+// 1. Функция добавления товара (вызывается при клике)
+function addToCart(product) {
+    // Получаем текущую корзину из памяти браузера (или создаем пустой массив)
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Проверяем, есть ли уже такой товар в корзине
+    const existingProduct = cart.find(item => item.id === product.id);
+
+    if (existingProduct) {
+        // Если есть - увеличиваем количество
+        existingProduct.count++;
+    } else {
+        // Если нет - добавляем новый
+        cart.push({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            img: product.img,
+            count: 1
+        });
+    }
+
+    // Сохраняем обновленную корзину обратно
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Визуальное уведомление (можно заменить на красивое всплывающее окно)
+    alert('Товар добавлен в корзину!');
+}
+
+// 2. Слушаем клики на странице (делегирование событий)
+document.addEventListener('click', function(event) {
+    
+    // А) Клик по кнопке "Купить" (на главной)
+    if (event.target.closest('.buy')) {
+        const btn = event.target.closest('.buy');
+        const product = {
+            id: btn.dataset.id,
+            title: btn.dataset.title,
+            price: parseInt(btn.dataset.price),
+            img: btn.dataset.img
+        };
+        addToCart(product);
+    }
+
+    // Б) Клик по кнопке "Добавить в корзину" (на странице товара)
+    if (event.target.closest('.buy-button')) {
+        const btn = event.target.closest('.buy-button');
+        
+        // Тут хитрость: цену берем не из атрибута, а из текста на странице (она же меняется!)
+        const priceText = document.getElementById('product-price').textContent; // "140 990 ₽"
+        // Чистим цену от пробелов и знака ₽, превращаем в число
+        const cleanPrice = parseInt(priceText.replace(/[^0-9]/g, ''));
+        
+        const product = {
+            id: btn.dataset.id, // Можно добавлять выбранную память к ID, чтобы различать товары
+            title: btn.dataset.title,
+            price: cleanPrice,
+            img: btn.dataset.img
+        };
+        addToCart(product);
+    }
+    
+    // В) Удаление товара (на странице корзины)
+    if (event.target.classList.contains('delete-btn')) {
+        const idToDelete = event.target.dataset.id;
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Оставляем только те товары, у которых ID НЕ совпадает с удаляемым
+        cart = cart.filter(item => item.id !== idToDelete);
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCartPage(); // Перерисовываем корзину
+    }
+});
+
+// 3. Функция отрисовки страницы корзины
+function renderCartPage() {
+    const cartContainer = document.getElementById('cart-items-container');
+    const emptyMessage = document.getElementById('cart-empty-message');
+    const cartContent = document.getElementById('cart-content');
+    const totalPriceEl = document.getElementById('total-price');
+
+    // Если мы не на странице корзины - выходим
+    if (!cartContainer) return;
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length === 0) {
+        // Корзина пуста
+        emptyMessage.style.display = 'block';
+        cartContent.style.display = 'none';
+    } else {
+        // В корзине что-то есть
+        emptyMessage.style.display = 'none';
+        cartContent.style.display = 'block';
+        
+        let totalSum = 0;
+        cartContainer.innerHTML = ''; // Чистим контейнер перед отрисовкой
+
+        cart.forEach(item => {
+            totalSum += item.price * item.count;
+            
+            const itemHTML = `
+                <div class="cart-item">
+                    <img src="${item.img}" alt="${item.title}">
+                    <div class="cart-item-info">
+                        <h3>${item.title}</h3>
+                        <p class="cart-item-price">${item.price.toLocaleString()} ₽</p>
+                    </div>
+                    <div class="cart-controls">
+                        <span class="cart-count">${item.count} шт.</span>
+                        <button class="delete-btn" data-id="${item.id}">Удалить</button>
+                    </div>
+                </div>
+            `;
+            cartContainer.innerHTML += itemHTML;
+        });
+
+        totalPriceEl.textContent = totalSum.toLocaleString();
+    }
+}
+
+// Запускаем отрисовку, если мы зашли на страницу корзины
+document.addEventListener('DOMContentLoaded', renderCartPage);

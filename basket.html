@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Корзина</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div class="shapka">
+ <ul>
+    <li>Доставка и оплата</li>
+    <li>Гарантии</li>
+    <li>Программа привилегий</li>
+    <li>Trade-in</li>
+    <li>Контакты</li>
+ </ul>
+</div>
+
+<div class="main_menu">
+    <a href="index.html" class="logo-link">
+        <img src="images/logo.png" alt="логотип" class="logo">
+    </a>
+    <ul>
+        <a href="catalog.html"><li>Каталог</li></a>
+        <li>БУРГЕР</li>
+        <a href="catalog.html"><li>Смартфоны</li></a>
+        <a href="catalog.html"><li>Наушники</li></a>
+        <a href="catalog.html"><li>Смарт-часы</li></a>
+        <a href="catalog.html"><li>Аксессуары</li></a>
+    </ul>
+</div>
+
+<div class="cart-wrapper">
+    <h2>Ваша корзина</h2>
+    
+    <div id="cart-empty-message" style="display: none;">
+        <p>В корзине пока пусто :(</p>
+        <a href="index.html" class="back-to-store">Перейти к покупкам</a>
+    </div>
+
+    <div class="cart-content" id="cart-content">
+        <div class="cart-items" id="cart-items-container">
+            </div>
+
+        <div class="cart-summary">
+            <p>Итого: <span id="total-price">0</span> ₽</p>
+            <button class="checkout-btn">Оформить заказ</button>
+        </div>
+    </div>
+</div>
+
+<div class="podval">
+  <div class="podval-grid">
+    <div class="podval-column">
+      <h3>Контакты</h3>
+      <p>г. Петрозаводск, ул. Ленина, 15</p>
+      <p>+7 (8142) 123-456</p>
+      <p>info@apple-shop.ru</p>
+    </div>
+    <div class="podval-column">
+      <h3>Помощь</h3>
+      <ul>
+        <li><span class="podval-link">Обмен и возврат</span></li>
+        <li><span class="podval-link">Доставка и оплата</span></li>
+        <li><span class="podval-link">Гарантии</span></li>
+        <li><span class="podval-link">Trade-in</span></li>
+      </ul>
+    </div>
+    <div class="podval-column">
+      <h3>Клиентский сервис</h3>
+      <ul>
+        <li><span class="podval-link">Контакты</span></li>
+        <li><span class="podval-link">Программа привилегий</span></li>
+        <li><span class="podval-link">Политика конфиденциальности</span></li>
+        <li><span class="podval-link">Публичная оферта</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
