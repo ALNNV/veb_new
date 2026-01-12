@@ -22,12 +22,28 @@
         <img src="images/logo.png" alt="логотип" class="logo">
     </a>
     <ul>
-        <a href="catalog.html"><li>Каталог</li></a>
+        <a href="catalog.html">
+            <li>Каталог</li>
+        </a>
         <li>БУРГЕР</li>
-        <a href="catalog.html"><li>Смартфоны</li></a>
-        <a href="catalog.html"><li>Наушники</li></a>
-        <a href="catalog.html"><li>Смарт-часы</li></a>
-        <a href="catalog.html"><li>Аксессуары</li></a>
+        <a href="catalog.html">
+            <li>Смартфоны</li>
+        </a>
+        <a href="catalog.html">
+            <li>Наушники</li>
+        </a>
+        <a href="catalog.html">
+            <li>Смарт-часы</li>
+        </a>
+        <a href="catalog.html">
+            <li>Аксессуары</li>
+        </a>
+        <a href="basket.html" class="basket-header-link">
+            <li class="basket-icon-wrapper">
+                <img src="images/basket64.png" alt="Корзина">
+                <span id="basket-count-badge" class="basket-badge">0</span>
+            </li>
+        </a>
     </ul>
 </div>
 
@@ -47,6 +63,66 @@
             <p>Итого: <span id="total-price">0</span> ₽</p>
             <button class="checkout-btn">Оформить заказ</button>
         </div>
+    </div>
+</div>
+
+<div id="order-modal" class="modal-overlay">
+    <div class="modal-window">
+        <span class="close-modal">&times;</span>
+        
+        <div id="order-form-content">
+            <h2>Оформление заказа</h2>
+            <form id="checkout-form">
+                
+                <div class="form-group">
+                    <label>Ваше имя</label>
+                    <input type="text" id="input-name" placeholder="Иван Иванов">
+                    <span class="error-text" id="error-name">Введите имя</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Телефон</label>
+                    <input type="tel" id="input-phone" placeholder="+7 (999) 000-00-00">
+                    <span class="error-text" id="error-phone">Введите корректный номер</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Способ получения</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="delivery" value="pickup" checked>
+                            Самовывоз (бесплатно)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="delivery" value="courier">
+                            Доставка курьером
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group hidden" id="address-group">
+                    <label>Адрес доставки</label>
+                    <input type="text" id="input-address" placeholder="Город, улица, дом, квартира">
+                    <span class="error-text" id="error-address">Укажите адрес доставки</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Способ оплаты</label>
+                    <div class="radio-group" id="payment-options">
+                        </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Подтвердить заказ</button>
+            </form>
+        </div>
+
+        <div id="order-success" style="display: none; text-align: center;">
+            <img src="images/icon3.png" alt="Успех" style="width: 64px; margin-bottom: 20px;">
+            <h3>Спасибо за заказ!</h3>
+            <p>Мы свяжемся с вами в ближайшее время.</p>
+            <button class="submit-btn" id="close-success-btn">Отлично</button>
+        </div>
+
     </div>
 </div>
 
