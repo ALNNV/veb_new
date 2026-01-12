@@ -78,3 +78,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// --- Логика выбора памяти и смены цены ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Ищем кнопки по вашему новому классу .memory-price
+    const memoryButtons = document.querySelectorAll('.memory-price');
+    const priceText = document.getElementById('product-price');
+
+    if (memoryButtons.length > 0 && priceText) {
+        
+        memoryButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // 1. Убираем класс 'active' у всех кнопок memory-price
+                memoryButtons.forEach(function(btn) {
+                    btn.classList.remove('active');
+                });
+
+                // 2. Добавляем 'active' нажатой кнопке
+                this.classList.add('active');
+
+                // 3. Берем цену и обновляем текст
+                const newPrice = this.getAttribute('data-price');
+                priceText.textContent = newPrice;
+            });
+        });
+    }
+});
